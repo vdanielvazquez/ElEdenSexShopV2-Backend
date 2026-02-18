@@ -104,7 +104,7 @@ app.post('/upload', upload.single('imagen'), async (req, res) => {
 
   if (error) return res.status(500).json(error)
 
-  const { data } = supabase.storage.from('productos').getPublicUrl(fileName)
+  const { data } = supabase.storage.from('producto').getPublicUrl(fileName)
 
   res.json({ url: data.publicUrl })
 })
