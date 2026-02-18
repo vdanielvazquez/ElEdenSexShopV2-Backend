@@ -99,7 +99,7 @@ app.post('/upload', upload.single('imagen'), async (req, res) => {
   const fileName = Date.now() + '-' + file.originalname
 
   const { error } = await supabase.storage
-    .from('productos')
+    .from('producto')
     .upload(fileName, file.buffer, { contentType: file.mimetype })
 
   if (error) return res.status(500).json(error)
